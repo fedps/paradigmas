@@ -4,5 +4,5 @@ Repositório para a disciplina de Paradigmas de Programação - 1º semestre de 
 Aluno: Felipe Dalla Porta de Souza
 
 ## Trabalho 1 / t1 :
- - [Parte 1](t1/t1parte1.py)
- - [Parte 2](t1/t1parte2.py)
+ - [Parte 1](t1/t1parte1.py): funções, listas e funções de alta ordem
+ - [Parte 2](t1/t1parte2.py): funções anônimas (lambda)
