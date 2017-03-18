@@ -4,8 +4,6 @@ Repositório para a disciplina de Paradigmas de Programação
 
 Aluno: Felipe Dalla Porta de Souza
 
-#Trabalho 1 / t1 :
-
+# Trabalho 1 / t1 :
 [Parte 1](t1/t1parte1.py)
-
 [Parte 2](t1/t1parte2.py)
