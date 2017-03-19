@@ -25,6 +25,6 @@ def year70(l):
 #   for number in numbers:
 #   new_numbers.append(number * 2)
 #   print(new_numbers)
-def doubleNum(l):
-	return list(map(lambda l1:l1*2,l))
+def doubleNum():
+	return list(map(lambda l:l*2,[1,2,3,4]))
 
