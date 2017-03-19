@@ -22,7 +22,7 @@ def countSpc(string):
 #5. Escreva uma função que, dada uma lista de números, calcule 3n*2 + 2/n + 1 para cada número n da lista. 
 #   Defina uma função auxiliar para ajudar neste exercício.
 def auxCalc(n):
-	return 3*n*2+2/n+1
+	return 3*n**2+2/n+1
 def listCalc(l):
 	return list(map(auxCalc,l))
 
