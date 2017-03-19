@@ -4,7 +4,7 @@ def addSr(l1):
 
 #2. Escreva uma função que, dada uma lista de números, calcule 3n*2 + 2/n + 1 para cada número n da lista.
 def listCalc(l):
-	return list(map(lambda n:3*n*2+2/n+1 ,l))
+	return list(map(lambda n:3*n**2+2/n+1 ,l))
 
 #3. Crie uma função que receba uma lista de nomes e retorne outra lista com somente aqueles nomes que terminarem com a letra 'a'.
 def endA(l):
