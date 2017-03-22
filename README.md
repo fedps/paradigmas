@@ -9,6 +9,5 @@ Aluno: Felipe Dalla Porta de Souza
  - [Parte 2](t1/t1parte2.py): funções anônimas (lambda)
  
 ## Extras:
- - [Why learning Haskell/Python makes you a worse programmer](extras/Pessimo_Programador.md): Resumo do texto que aprender
- Python e Haskell nos torna péssimo programadores
+ - [Why learning Haskell/Python makes you a worse programmer](extras/Pessimo_Programador.md): Resumo do texto que fala sobre como aprender Python e Haskell nos torna péssimo programadores
 
