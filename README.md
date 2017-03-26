@@ -3,7 +3,7 @@ Repositório para a disciplina de Paradigmas de Programação - 1º semestre de 
 
 Aluno: Felipe Dalla Porta de Souza
 
-[Trabalhos](#trabalhos) | [Extras](#extras)
+
 ## Trabalhos:
 ### Trabalho 1 / [t1](t1) :
  - [Parte 1](t1/t1parte1.py): funções, listas e funções de alta ordem
