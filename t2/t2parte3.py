@@ -23,10 +23,3 @@ def main():
 
 if __name__ == '__main__':
    main()
-
-
-#   tree.xpath('//comment()')
-#   str(string)
-#   str.split("\n")
-#   l[2]
-
