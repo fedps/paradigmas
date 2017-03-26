@@ -8,4 +8,4 @@
 com cores variadas 
 
 ## Parte 3 / extra
-Exercício que contém um desafio para ser resolvido
+Exercício que contém um desafio resolvido no arquivo [t2parte3.py](t2parte3.py)
