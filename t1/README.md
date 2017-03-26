@@ -1,4 +1,3 @@
-
 # Trabalho 1: Programação funcional em Python
 
 ## Parte 1
