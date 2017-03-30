@@ -16,3 +16,5 @@ Aluno: Felipe Dalla Porta de Souza
  
 ## Extras:
  - [Why learning Haskell/Python makes you a worse programmer](extras/Pessimo_Programador.md): Resumo do texto que fala sobre como aprender Python e Haskell nos torna péssimo programadores
+ - [Eliza Chatbot](extras/eliza): Pasta que contém conversa com Eliza, código do programa e um arquivo explicando duas partes
+ do código.
