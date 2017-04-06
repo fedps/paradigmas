@@ -12,35 +12,35 @@ avo(X,Z) :- pai(X,Y), pai(Y,Z).
 
 |trace        | Comentário|
 |-------------|-----------|
-|[trace]  ?- avo(joao,Y).|  teste1  |
-|Call: (8) avo(joao, _10934) ? creep|
-|Call: (9) pai(joao, _11152) ? creep|
-|Exit: (9) pai(joao, jose) ? creep|
-|Call: (9) pai(jose, _10934) ? creep|
-|Fail: (9) pai(jose, _10934) ? creep|
-|Fail: (8) avo(joao, _10934) ? creep|
-|false.|
+|[trace]  ?- avo(joao,Y).|Chama avo |
+|Call: (8) avo(joao, _10934) ? creep|Substitui Y por uma variável| 
+|Call: (9) pai(joao, _11152) ? creep|Seguindo a predicado avo, procura quem é o pai de joao|
+|Exit: (9) pai(joao, jose) ? creep|Descobre que jose é pai de joao|
+|Call: (9) pai(jose, _10934) ? creep|Agora vai buscar quem é o pai de jose|
+|Fail: (9) pai(jose, _10934) ? creep|Falha em achar, pois jose não tem pai definido|
+|Fail: (8) avo(joao, _10934) ? creep|retorna para a consulta com falha|
+|false.|Não teve sucesso na busca|
 
 |trace        | Comentário|
 |-------------|-----------|
-|[trace]  ?- avo(roberto,Y).|
-|Call: (8) avo(roberto, _7440) ? creep|
-|Call: (9) pai(roberto, _7658) ? creep|
-|Exit: (9) pai(roberto, joao) ? creep|
-|Call: (9) pai(joao, _7440) ? creep|
-|Exit: (9) pai(joao, jose) ? creep|
-|Exit: (8) avo(roberto, jose) ? creep|
-|Y = jose ;|
-|Redo: (9) pai(roberto, _7658) ? creep|
-|Exit: (9) pai(roberto, julio) ? creep|
-|Call: (9) pai(julio, _7440) ? creep|
-|Exit: (9) pai(julio, marcos) ? creep|
-|Exit: (8) avo(roberto, marcos) ? creep|
-|Y = marcos ;|
-|Redo: (9) pai(julio, _7440) ? creep|
-|Exit: (9) pai(julio, mario) ? creep|
-|Exit: (8) avo(roberto, mario) ? creep|
-|Y = mario.|
+|[trace]  ?- avo(roberto,Y).|Chama avo|
+|Call: (8) avo(roberto, _7440) ? creep|Substitui Y por uma variável|
+|Call: (9) pai(roberto, _7658) ? creep|Segue o predicado avo e busca o pai de roberto|
+|Exit: (9) pai(roberto, joao) ? creep|Descobre que o pai de roberto é joao|
+|Call: (9) pai(joao, _7440) ? creep|Busca quem é o pai de joao|
+|Exit: (9) pai(joao, jose) ? creep|Acha jose como pai de joao|
+|Exit: (8) avo(roberto, jose) ? creep|Retorna para a consulta, substituindo a variável por jose|
+|Y = jose ;|Retorna que o avo de roberto é jose| 
+|Redo: (9) pai(roberto, _7658) ? creep|Busca outra solução para a mesma consulta, usando outra variável|
+|Exit: (9) pai(roberto, julio) ? creep|Acha que julio também é pai de roberto|
+|Call: (9) pai(julio, _7440) ? creep|Procura o pai de julio|
+|Exit: (9) pai(julio, marcos) ? creep|Descobre que marcos é pai de julio|
+|Exit: (8) avo(roberto, marcos) ? creep|substitui a variável por marcos|
+|Y = marcos ;|retorna marcos como avo de roberto|
+|Redo: (9) pai(julio, _7440) ? creep|Novamente faz outra busca para o mesmo problema, começa a partir do julio que tinha dois caminhos a seguir|
+|Exit: (9) pai(julio, mario) ? creep|Descobre que o mario é pai de julio|
+|Exit: (8) avo(roberto, mario) ? creep|mario substitui a variável da consulta inicial|
+|Y = mario.|retorna mario como outro avo de roberto|
 
 
 2 - Considere o predicado definido abaixo, que resolve um problema de uma prova da Olimpíada Brasileira de Informática.
