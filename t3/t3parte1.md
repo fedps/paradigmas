@@ -100,26 +100,26 @@ sum(L,S) :- L = [H|T],
 	    S is H + AUX.
 ```
 ```prolog
-[trace]  ?- sum([1,2,3],L). %
-Call: (8) sum([1, 2, 3], _7268) ? creep. %
-Call: (9) [1, 2, 3]=[_7488|_7490] ? creep. %
-Exit: (9) [1, 2, 3]=[1, 2, 3] ? creep. %
-Call: (9) sum([2, 3], _7510) ? creep. %
-Call: (10) [2, 3]=[_7494|_7496] ? creep. %
-Exit: (10) [2, 3]=[2, 3] ? creep. %
-Call: (10) sum([3], _7516) ? creep. %
-Call: (11) [3]=[_7500|_7502] ? creep. %
-Exit: (11) [3]=[3] ? creep. %
-Call: (11) sum([], _7522) ? creep. %
-Exit: (11) sum([], 0) ? creep. %
-Call: (11) _7526 is 3+0 ? creep. %
-Exit: (11) 3 is 3+0 ? creep. %
-Exit: (10) sum([3], 3) ? creep. %
-Call: (10) _7532 is 2+3 ? creep. %
-Exit: (10) 5 is 2+3 ? creep. %
-Exit: (9) sum([2, 3], 5) ? creep. %
-Call: (9) _7268 is 1+5 ? creep. %
-Exit: (9) 6 is 1+5 ? creep. %
-Exit: (8) sum([1, 2, 3], 6) ? creep. %
-L = 6. %
+[trace]  ?- sum([1,2,3],L). % chama sum
+Call: (8) sum([1, 2, 3], _7268) ? creep. % Substitui L por uma variável _7268
+Call: (9) [1, 2, 3]=[_7488|_7490] ? creep. % Divide L em 2 variáveis H|T
+Exit: (9) [1, 2, 3]=[1, 2, 3] ? creep. % Define o que é H e o que é T
+Call: (9) sum([2, 3], _7510) ? creep. % Começa a recurso chamando novamente sum
+Call: (10) [2, 3]=[_7494|_7496] ? creep. % Divide a lista em H|T
+Exit: (10) [2, 3]=[2, 3] ? creep. % Define quem é H e quem é T
+Call: (10) sum([3], _7516) ? creep. % Chama novamente sum
+Call: (11) [3]=[_7500|_7502] ? creep. % Divide em H|T
+Exit: (11) [3]=[3] ? creep. % Define o H
+Call: (11) sum([], _7522) ? creep. % Chama sum pela última vez
+Exit: (11) sum([], 0) ? creep. % Como é lista vazia, retorna 0
+Call: (11) _7526 is 3+0 ? creep. % Recursivamente continua a execuço, fazendo H+ AUX
+Exit: (11) 3 is 3+0 ? creep. % S = 3
+Exit: (10) sum([3], 3) ? creep. % Define AUX como 3
+Call: (10) _7532 is 2+3 ? creep. % Volta para a próxima execuço
+Exit: (10) 5 is 2+3 ? creep. % S = 5
+Exit: (9) sum([2, 3], 5) ? creep. % AUX = 5
+Call: (9) _7268 is 1+5 ? creep. % Próxima execuço recursiva
+Exit: (9) 6 is 1+5 ? creep. % S = 6
+Exit: (8) sum([1, 2, 3], 6) ? creep. % Termina a execução
+L = 6. % Resposta final
 ```
