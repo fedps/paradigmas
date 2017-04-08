@@ -99,27 +99,27 @@ sum(L,S) :- L = [H|T],
 	    sum(T,AUX),
 	    S is H + AUX.
 ```
-|trace        | Comentário|
-|-------------|-----------|
-|[trace]  ?- sum([1,2,3],L).|
-|Call: (8) sum([1, 2, 3], _7268) ? creep|
-|Call: (9) [1, 2, 3]=[_7488|_7490] ? creep|
-|Exit: (9) [1, 2, 3]=[1, 2, 3] ? creep|
-|Call: (9) sum([2, 3], _7510) ? creep|
-|Call: (10) [2, 3]=[_7494|_7496] ? creep|
-|Exit: (10) [2, 3]=[2, 3] ? creep|
-|Call: (10) sum([3], _7516) ? creep|
-|Call: (11) [3]=[_7500|_7502] ? creep|
-|Exit: (11) [3]=[3] ? creep|
-|Call: (11) sum([], _7522) ? creep|
-|Exit: (11) sum([], 0) ? creep|
-|Call: (11) _7526 is 3+0 ? creep|
-|Exit: (11) 3 is 3+0 ? creep|
-|Exit: (10) sum([3], 3) ? creep|
-|Call: (10) _7532 is 2+3 ? creep|
-|Exit: (10) 5 is 2+3 ? creep|
-|Exit: (9) sum([2, 3], 5) ? creep|
-|Call: (9) _7268 is 1+5 ? creep|
-|Exit: (9) 6 is 1+5 ? creep|
-|Exit: (8) sum([1, 2, 3], 6) ? creep|
-|L = 6 .|
+```prolog
+[trace]  ?- sum([1,2,3],L). %
+Call: (8) sum([1, 2, 3], _7268) ? creep. %
+Call: (9) [1, 2, 3]=[_7488|_7490] ? creep. %
+Exit: (9) [1, 2, 3]=[1, 2, 3] ? creep. %
+Call: (9) sum([2, 3], _7510) ? creep. %
+Call: (10) [2, 3]=[_7494|_7496] ? creep. %
+Exit: (10) [2, 3]=[2, 3] ? creep. %
+Call: (10) sum([3], _7516) ? creep. %
+Call: (11) [3]=[_7500|_7502] ? creep. %
+Exit: (11) [3]=[3] ? creep. %
+Call: (11) sum([], _7522) ? creep. %
+Exit: (11) sum([], 0) ? creep. %
+Call: (11) _7526 is 3+0 ? creep. %
+Exit: (11) 3 is 3+0 ? creep. %
+Exit: (10) sum([3], 3) ? creep. %
+Call: (10) _7532 is 2+3 ? creep. %
+Exit: (10) 5 is 2+3 ? creep. %
+Exit: (9) sum([2, 3], 5) ? creep. %
+Call: (9) _7268 is 1+5 ? creep. %
+Exit: (9) 6 is 1+5 ? creep. %
+Exit: (8) sum([1, 2, 3], 6) ? creep. %
+L = 6. %
+```
