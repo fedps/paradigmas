@@ -121,7 +121,8 @@ mapop(L1,L2) :- L1 = [H|T],
                 L2 = [D|AUX].	
                 
 
-%12. Defina um predicado positivos(L1,L2), de forma que L2 seja uma lista só com os elementos positivos de L1, conforme o exemplo abaixo:
+%12. Defina um predicado positivos(L1,L2), de forma que L2 seja uma lista só com os elementos positivos de L1, 
+%    conforme o exemplo abaixo:
 %    ?­ positivos([­-1,0,1,-­2,9],L).
 %      L = [1, 9]
 positivos([],[]).
