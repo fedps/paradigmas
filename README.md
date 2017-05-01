@@ -19,6 +19,11 @@ Aluno: Felipe Dalla Porta de Souza
  - [Parte 2](t3/t3parte2.pl): Exercícios prolog
  - [Parte 3](t3/t3parte3.pl): Exercício da Olímpiada Brasileira de Informática
  
+### Trabalho 4 / [t4](t4) :
+ - [Classe Point](t4/point.cpp): Arquivo da classe Point
+ - [Classe Circle](t4/circle.cpp): Arquivo da classe Circle
+ - [Figura SVG](t4/SVG): Arquivos que geram o SVG que contém círculos ligados por linhas no centro
+ 
 ## Extras:
  - [Why learning Haskell/Python makes you a worse programmer](extras/Pessimo_Programador.md): Resumo do texto que fala sobre como aprender Python e Haskell nos torna péssimo programadores
  - [Eliza Chatbot](extras/eliza): Pasta que contém conversa com Eliza, código do programa e um arquivo explicando duas partes
