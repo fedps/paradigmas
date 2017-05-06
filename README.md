@@ -22,7 +22,12 @@ Aluno: Felipe Dalla Porta de Souza
 ### Trabalho 4 / [t4](t4) :
  - [Classe Point](t4/point.cpp): Arquivo da classe Point
  - [Classe Circle](t4/circle.cpp): Arquivo da classe Circle
- - [Figura SVG](t4/SVG): Arquivos que geram o SVG que contém círculos ligados por linhas no centro
+ - [Figura SVG](t4/SVG): Arquivos que geram o SVG que contém círculos ligados por linhas no centro 
+
+### Trabalho 5 / [t5](t5) :
+ - [Classe ScoreAtividades](t5/score_atividades.cpp): Arquivo da classe ScoreAtividades
+ - [Classe ScoreTotal](t5/score_total.cpp): Arquivo da classe ScoreTotal
+ - [Main](t5/main.cpp): Arquivo principal 
  
 ## Extras:
  - [Why learning Haskell/Python makes you a worse programmer](extras/Pessimo_Programador.md): Resumo do texto que fala sobre como aprender Python e Haskell nos torna péssimo programadores
