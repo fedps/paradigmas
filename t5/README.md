@@ -10,5 +10,5 @@ Arquivos da classe que contém o Score total: [score_total.cpp](score_total.cpp)
 ## Main
 Arquivo principal [main.cpp](main.cpp)
 
-##Build
+## Build
 Script para compilar todos arquivos [build.sh](build.sh)
