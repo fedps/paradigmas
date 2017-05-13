@@ -34,3 +34,4 @@ Aluno: Felipe Dalla Porta de Souza
  - [Eliza Chatbot](extras/eliza): Pasta que contém conversa com Eliza, código do programa e um arquivo explicando duas partes
  do código.
  - [Screenshot de Oxygine](extras/helloworld.png): Captura de tela do exemplo Hello World utilizando Oxygine
+ - [Explorando std::chrono](extras/terras_desconhecidas.md): Desbravando a regio conhecida de std::chrono para obter novos conhecimentos.
