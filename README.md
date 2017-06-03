@@ -29,13 +29,18 @@ Aluno: Felipe Dalla Porta de Souza
  - [Classe ScoreTotal](t5/score_total.cpp): Arquivo da classe ScoreTotal
  - [Main](t5/main.cpp): Arquivo principal  
 
-### Trabalho 5 / [t6](t6) :
+### Trabalho 6 / [t6](t6) :
  - [Classe Shape](t6/shape.cpp): Arquivo da classe Shape
  - [Classe Circle](t6/circle.cpp): Arquivo da classe Circle
  - [Classe Rectangle](t6/rectangle.cpp): Arquivo da classe Rectangle
  - [Classe Triangle](t6/triangle.cpp): Arquivo da classe Triangle
  - [Main](t6/main.cpp): Arquivo principal
  
+### Trabalho 7 / [t7](t7) :
+ - [window.cxx](t7/window.cxx): Arquivo gerado pelo fluid
+ - [window.h](t7/window.h): Header do arquigo gerado pelo fluid
+ - [Main](t7/main.cpp): Arquivo principal
+
 ## Extras:
  - [Why learning Haskell/Python makes you a worse programmer](extras/Pessimo_Programador.md): Resumo do texto que fala sobre como aprender Python e Haskell nos torna péssimo programadores
  - [Eliza Chatbot](extras/eliza): Pasta que contém conversa com Eliza, código do programa e um arquivo explicando duas partes
