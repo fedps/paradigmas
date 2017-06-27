@@ -3,23 +3,24 @@
 #include "window.h"
 
 UserInterface::UserInterface() {
-  { w = new Fl_Double_Window(620, 565, "Simple CRUD");
+  { w = new Fl_Double_Window(560, 580, "Simple CRUD");
+    w->labeltype(FL_SHADOW_LABEL);
     w->user_data((void*)(this));
     { inputIn = new Fl_Input(117, 46, 235, 24, "Nome Entrada");
     } // Fl_Input* inputIn
-    { btnClear = new Fl_Button(24, 171, 100, 25, "Clear");
+    { btnClear = new Fl_Button(49, 203, 100, 25, "Clear");
     } // Fl_Button* btnClear
-    { btnUpdate = new Fl_Button(147, 171, 100, 25, "Update");
+    { btnUpdate = new Fl_Button(172, 203, 100, 25, "Update");
     } // Fl_Button* btnUpdate
-    { btnDelete = new Fl_Button(270, 171, 100, 25, "Delete");
+    { btnDelete = new Fl_Button(295, 203, 100, 25, "Delete");
     } // Fl_Button* btnDelete
-    { btnInsert = new Fl_Button(394, 171, 100, 25, "Insert");
+    { btnInsert = new Fl_Button(419, 203, 100, 25, "Insert");
     } // Fl_Button* btnInsert
     { Fl_Box* o = new Fl_Box(132, 16, 255, 16, "Simple CRUD");
       o->labelfont(1);
       o->labelsize(22);
     } // Fl_Box* o
-    { browser = new Fl_Browser(24, 218, 470, 277);
+    { browser = new Fl_Browser(24, 245, 516, 284);
       browser->type(2);
     } // Fl_Browser* browser
     { inputOut = new Fl_Input(117, 73, 236, 25, "Nome Sa\303\255""da");
@@ -28,6 +29,16 @@ UserInterface::UserInterface() {
     } // Fl_Button* btnImport
     { btnImport = new Fl_Button(367, 75, 175, 22, "Exportar configura\303\247\303\265""es");
     } // Fl_Button* btnImport
+    { inputTitle = new Fl_Input(117, 102, 236, 25, "T\303\255tulo");
+    } // Fl_Input* inputTitle
+    { inputId = new Fl_Input(117, 131, 236, 25, "ID");
+    } // Fl_Input* inputId
+    { inputLabel = new Fl_Input(117, 160, 236, 25, "Label");
+    } // Fl_Input* inputLabel
+    { Fl_Button* o = new Fl_Button(173, 535, 200, 35, "GERAR C\303\223""DIGO");
+      o->labeltype(FL_ENGRAVED_LABEL);
+      o->labelcolor((Fl_Color)1);
+    } // Fl_Button* o
     w->end();
   } // Fl_Double_Window* w
 }

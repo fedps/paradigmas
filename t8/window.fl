@@ -8,37 +8,37 @@ class UserInterface {open
   } {
     Fl_Window w {
       label {Simple CRUD} open
-      protected xywh {620 78 620 565} type Double visible
+      protected xywh {620 78 560 580} type Double labeltype SHADOW_LABEL visible
     } {
       Fl_Input inputIn {
         label {Nome Entrada}
         protected xywh {117 46 235 24}
       }
       Fl_Button btnClear {
-        label Clear
-        protected xywh {24 171 100 25}
+        label Clear selected
+        protected xywh {49 203 100 25}
       }
       Fl_Button btnUpdate {
-        label Update
-        protected xywh {147 171 100 25}
+        label Update selected
+        protected xywh {172 203 100 25}
       }
       Fl_Button btnDelete {
-        label Delete
-        protected xywh {270 171 100 25}
+        label Delete selected
+        protected xywh {295 203 100 25}
       }
       Fl_Button btnInsert {
-        label Insert
-        protected xywh {394 171 100 25}
+        label Insert selected
+        protected xywh {419 203 100 25}
       }
       Fl_Box {} {
         label {Simple CRUD}
         xywh {132 16 255 16} labelfont 1 labelsize 22
       }
       Fl_Browser browser {
-        protected xywh {24 218 470 277} type Hold
+        protected xywh {24 245 516 284} type Hold
       }
       Fl_Input inputOut {
-        label {Nome Saída} selected
+        label {Nome Saída}
         protected xywh {117 73 236 25}
       }
       Fl_Button btnImport {
@@ -48,6 +48,22 @@ class UserInterface {open
       Fl_Button btnImport {
         label {Exportar configurações}
         protected xywh {367 75 175 22}
+      }
+      Fl_Input inputTitle {
+        label {Título}
+        protected xywh {117 102 236 25}
+      }
+      Fl_Input inputId {
+        label ID
+        protected xywh {117 131 236 25}
+      }
+      Fl_Input inputLabel {
+        label Label
+        protected xywh {117 160 236 25}
+      }
+      Fl_Button {} {
+        label {GERAR CÓDIGO}
+        xywh {173 535 200 35} labeltype ENGRAVED_LABEL labelcolor 1
       }
     }
   }

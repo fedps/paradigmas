@@ -23,5 +23,8 @@ protected:
   Fl_Input *inputOut;
   Fl_Button *btnImport;
   Fl_Button *btnImport;
+  Fl_Input *inputTitle;
+  Fl_Input *inputId;
+  Fl_Input *inputLabel;
 };
 #endif
