@@ -6,7 +6,7 @@ UserInterface::UserInterface() {
   { w = new Fl_Double_Window(560, 580, "Simple CRUD");
     w->user_data((void*)(this));
     { inputIn = new Fl_Input(117, 46, 235, 24, "Nome Entrada");
-      inputIn->value("combustivel.csv");
+      inputIn->value("dados.csv");
     } // Fl_Input* inputIn
     { btnClear = new Fl_Button(49, 203, 100, 25, "Clear");
     } // Fl_Button* btnClear
@@ -24,6 +24,7 @@ UserInterface::UserInterface() {
       browser->type(2);
     } // Fl_Browser* browser
     { inputOut = new Fl_Input(117, 73, 236, 25, "Nome Sa\303\255""da");
+      inputOut->value("dados.csv");
     } // Fl_Input* inputOut
     { btnImport = new Fl_Button(367, 46, 175, 22, "Importar configura\303\247\303\265""es");
     } // Fl_Button* btnImport
