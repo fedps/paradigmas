@@ -4,9 +4,9 @@
 
 UserInterface::UserInterface() {
   { w = new Fl_Double_Window(560, 580, "Simple CRUD");
-    w->labeltype(FL_SHADOW_LABEL);
     w->user_data((void*)(this));
     { inputIn = new Fl_Input(117, 46, 235, 24, "Nome Entrada");
+      inputIn->value("combustivel.csv");
     } // Fl_Input* inputIn
     { btnClear = new Fl_Button(49, 203, 100, 25, "Clear");
     } // Fl_Button* btnClear
@@ -16,7 +16,7 @@ UserInterface::UserInterface() {
     } // Fl_Button* btnDelete
     { btnInsert = new Fl_Button(419, 203, 100, 25, "Insert");
     } // Fl_Button* btnInsert
-    { Fl_Box* o = new Fl_Box(132, 16, 255, 16, "Simple CRUD");
+    { Fl_Box* o = new Fl_Box(59, 16, 445, 16, "Gerador de Aplica\303\247\303\243o Web/Mobile");
       o->labelfont(1);
       o->labelsize(22);
     } // Fl_Box* o
@@ -27,18 +27,18 @@ UserInterface::UserInterface() {
     } // Fl_Input* inputOut
     { btnImport = new Fl_Button(367, 46, 175, 22, "Importar configura\303\247\303\265""es");
     } // Fl_Button* btnImport
-    { btnImport = new Fl_Button(367, 75, 175, 22, "Exportar configura\303\247\303\265""es");
-    } // Fl_Button* btnImport
+    { btnExport = new Fl_Button(367, 75, 175, 22, "Exportar configura\303\247\303\265""es");
+    } // Fl_Button* btnExport
     { inputTitle = new Fl_Input(117, 102, 236, 25, "T\303\255tulo");
     } // Fl_Input* inputTitle
     { inputId = new Fl_Input(117, 131, 236, 25, "ID");
     } // Fl_Input* inputId
     { inputLabel = new Fl_Input(117, 160, 236, 25, "Label");
     } // Fl_Input* inputLabel
-    { Fl_Button* o = new Fl_Button(173, 535, 200, 35, "GERAR C\303\223""DIGO");
-      o->labeltype(FL_ENGRAVED_LABEL);
-      o->labelcolor((Fl_Color)1);
-    } // Fl_Button* o
+    { btnGenerate = new Fl_Button(180, 535, 200, 35, "GERAR C\303\223""DIGO");
+      btnGenerate->labeltype(FL_ENGRAVED_LABEL);
+      btnGenerate->labelcolor((Fl_Color)1);
+    } // Fl_Button* btnGenerate
     w->end();
   } // Fl_Double_Window* w
 }

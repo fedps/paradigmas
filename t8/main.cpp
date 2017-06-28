@@ -13,32 +13,24 @@
 
 class Data {
 private:
-  std::string type;
-  std::string name;
-  float price;
+  std::string label;
+  std::string id;
 public:
-  Data(std::string type, std::string name, float price) {
-    this->type = type;
-    this->name = name;
-    this->price = price;
+  Data(std::string label, std::string id) {
+    this->label = label;
+    this->id = id;
   }
-  std::string getType() {
-    return type;
+  std::string getId() {
+    return id;
   }
-  std::string getName() {
-    return name;
+  std::string getLabel() {
+    return label;
   }
-  std::string getPrice(){
-    return std::to_string(price);
-  }
-  void setName(std::string name) {
-    this->name = name;
+  void setId(std::string id) {
+    this->id = id;
   }  
-  void setType(std::string type) {
-    this->name = type;
-  }  
-  void setPrice(std::string price){
-    this->price = std::stof(price);
+  void setLabel(std::string label){
+    this->label = label;
   }
 };
 
@@ -51,6 +43,7 @@ private:
 public:
   
   View() {
+    /*Setar o nome do arquivo csv direto no inputIn*/
     btnClear->callback((Fl_Callback*) cbBtnClear, (void*)(this));
     btnUpdate->callback((Fl_Callback*) cbBtnUpdate, (void*)(this)); 
     btnDelete->callback((Fl_Callback*) cbBtnDelete, (void*)(this)); 
@@ -67,7 +60,8 @@ public:
   
   static void cbBtnImport(Fl_Widget* btn, void* userdata) {
     View* gui = static_cast<View*>(userdata);
-    std::ifstream file("combustivel.csv");
+    std::string inputIn(gui->inputIn->value());
+    std::ifstream file(inputIn);
     std::string line;
     std::string cell[3];
 
@@ -76,23 +70,23 @@ public:
       std::getline(linestream, cell[0], ',');
       std::getline(linestream, cell[1], ',');
       std::getline(linestream, cell[2], ',');
-      gui->data.push_back(Data(cell[1], cell[0], std::stof(cell[2])));
+      gui->data.push_back(Data(cell[1], cell[0]));
       gui->browser->add((cell[0]+ " : " +cell[1]+ " : "+ cell[2]).c_str());
     }
   }
   static void cbBtnExport(Fl_Widget* btn, void* userdata) {
     View* gui = static_cast<View*>(userdata);
-    std::ofstream file ("combustivel.csv");
+    std::string inputOut(gui->inputOut->value());
+    std::ofstream file (inputOut);
     if(file.is_open()){
-      //file<<"Ipiranga,Etanol,50.0\n";
       int linhas = gui->browser->size();
       int index=1;
       while (index <= linhas) {
-        file<<gui->data[index-1].getName().c_str();
+        file<<gui->data[index-1].getId().c_str();
         file<<",";
-        file<<gui->inputType->text(gui->inputType->find_index(gui->data[index-1].getType().c_str()));
+        //file<<gui->inputType->text(gui->inputType->find_index(gui->data[index-1].getType().c_str()));
         file<<",";
-        file<<gui->data[index-1].getPrice().c_str();
+        file<<gui->data[index-1].getLabel().c_str();
         file<<"\n";
         index++;
       }
@@ -103,17 +97,19 @@ public:
   // Funcao callback chamada quando pressionado botao 'Clear'
   static void cbBtnClear(Fl_Widget* btn, void* userdata) {
     View* gui = static_cast<View*>(userdata);
-    gui->inputName->value("");
-    gui->inputPrice->value("");
+    gui->inputIn->value("");
+    gui->inputOut->value("");
+    gui->inputTitle->value("");
+    gui->inputId->value("");
+    gui->inputLabel->value("");
   }
 
   // Funcao callback chamada quando pressionado botao 'Insert'
   static void cbBtnInsert(Fl_Widget* btn, void* userdata) {
     View* gui = static_cast<View*>(userdata);
-    std::string inputName(gui->inputName->value());
-    std::string inputPrice(gui->inputPrice->value());
-    gui->data.push_back(Data(gui->inputType->text(), inputName, std::stof(inputPrice)));
-    gui->browser->add((inputName+" : "+ gui->inputType->text() +" : "+inputPrice).c_str());
+    std::string inputId(gui->inputId->value());
+    std::string inputLabel(gui->inputLabel->value());
+    gui->browser->add((inputId+" : "+inputLabel).c_str());
   }
 
   // Funcao callback chamada quando selecionada uma linha no Fl_Browser
@@ -121,9 +117,9 @@ public:
     View* gui = static_cast<View*>(userdata);
     int index = gui->browser->value(); // 1-based index
     //gui->inputType->value(gui->data[index-1].getType().c_str());
-    gui->inputType->value(gui->inputType->find_index(gui->data[index-1].getType().c_str()));
-    gui->inputName->value(gui->data[index-1].getName().c_str());
-    gui->inputPrice->value(gui->data[index-1].getPrice().c_str());
+    //gui->inputType->value(gui->inputType->find_index(gui->data[index-1].getType().c_str()));
+    gui->inputId->value(gui->data[index-1].getId().c_str());
+    gui->inputLabel->value(gui->data[index-1].getLabel().c_str());
   }
 
   // Funcao callback chamada quando pressionado botao 'Update'
@@ -132,12 +128,12 @@ public:
     int index = gui->browser->value(); // 1-based index
     std::cout << index << std::endl;
     if (index > 0) {
-      std::string inputName(gui->inputName->value());
-      std::string inputPrice(gui->inputPrice->value());      
-      gui->data[index-1].setName(inputName);
-      gui->data[index-1].setPrice(inputPrice);
-      std::cout << inputName << std::endl;
-      gui->browser->text(index,(inputName+" : "+ gui->inputType->text() + " : " + inputPrice).c_str());
+      std::string inputId(gui->inputId->value());
+      std::string inputLabel(gui->inputLabel->value());      
+      gui->data[index-1].setId(inputId);
+      gui->data[index-1].setLabel(inputLabel);
+      std::cout << inputLabel << std::endl;
+      gui->browser->text(index,(inputId+" : "+ inputLabel).c_str());
     }
   }
 
@@ -147,9 +143,8 @@ public:
     int index = gui->browser->value(); // 1-based index
     std::cout << index << std::endl;
     if (index > 0) {
-      std::string inputName(gui->inputName->value());
-      std::string inputPrice(gui->inputPrice->value()); 
-      std::string inputType(gui->inputType->text());
+      std::string inputId(gui->inputId->value());
+      std::string inputLabel(gui->inputLabel->value()); 
       gui->data.erase(gui->data.begin() + index-1);
       gui->browser->remove(index);
     }

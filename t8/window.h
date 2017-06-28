@@ -22,9 +22,11 @@ protected:
   Fl_Browser *browser;
   Fl_Input *inputOut;
   Fl_Button *btnImport;
-  Fl_Button *btnImport;
+  Fl_Button *btnExport;
   Fl_Input *inputTitle;
   Fl_Input *inputId;
   Fl_Input *inputLabel;
+public:
+  Fl_Button *btnGenerate;
 };
 #endif
