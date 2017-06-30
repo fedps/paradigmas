@@ -40,6 +40,12 @@ Aluno: Felipe Dalla Porta de Souza
  - [window.cxx](t7/window.cxx): Arquivo gerado pelo fluid
  - [window.h](t7/window.h): Header do arquigo gerado pelo fluid
  - [Main](t7/main.cpp): Arquivo principal
+ 
+### Trabalho 8 / [t8](t8) :
+ - [main.cpp](t8/main.cpp): Arquivo principal
+ - [dados.csv](t8/dados.csv): Arquivo onde são guardadas as configuraçes
+ - [index.html](t8/index.html): Arquivo gerado na interface gráfica
+
 
 ## Extras:
  - [Why learning Haskell/Python makes you a worse programmer](extras/Pessimo_Programador.md): Resumo do texto que fala sobre como aprender Python e Haskell nos torna péssimo programadores
