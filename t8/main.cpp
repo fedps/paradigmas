@@ -200,6 +200,36 @@ public:
               fileOut<<", ";
           }
           fileOut<<"];\n";
+        } else if(line == ">>>5<<<"){
+          int size = gui->browser->size();
+          int index=1;
+          fileOut<<"oTable=$(\'#table\').dataTable({\n\"data\": dataSet,\n\"columns\": [\n{ \"title\": \"Seq\", \"class\": \"center\" },\n{ \"title\": \"\", \"class\": \"center\" },\n";
+          while (index <= size) {
+            std::string inputLabel(gui->data[index-1].getLabel().c_str());          
+            fileOut<<"{ \"title\": \""+inputLabel+"\"},\n";
+            index++;
+          }
+          fileOut<<"]\n});";
+        } else if(line == ">>>6<<<"){
+          int size = gui->browser->size();
+          int index=1;
+          fileOut<<"$('#table tbody').on( 'click', '.glyphicon-edit', function () {\n$('#list').hide();\nvar rows = $(this).parents('tr').children();\n$('#seq').text(rows[0].innerHTML);\n";
+          while (index <= size) {
+            std::string inputId(gui->data[index-1].getId().c_str());
+            index++;
+            fileOut<<"$('#"+inputId+"').val(rows["+std::to_string(index)+"].innerHTML);\n";            
+          }
+          fileOut<<"$('#formID').show();\n} );\n";
+        } else if(line == ">>>7<<<"){
+          int size = gui->browser->size();
+          int index=1;
+          fileOut<<"function save() {\n  var seq=$('#seq').text();\n  if ( isNaN(seq) ) { seq=0; }\n  var key=formId+\"_\"+seq;\n  var object={\n";
+          while (index <= size) {
+            std::string inputId(gui->data[index-1].getId().c_str());
+            fileOut<<"\""+inputId+"\":$(\"#"+inputId+"\").val(),\n";
+            index++;
+          }
+          fileOut<<"}\nlocalStorage.setItem(key, JSON.stringify(object));\n}\n";
         }
         else{
             fileOut<<str;           

@@ -107,7 +107,16 @@ dataSet[seq]=[index, icons,object.stationId, object.price, object.fuelType];
 			seq=seq+1;
 		}
 
->>>5<<<
+oTable=$('#table').dataTable({
+"data": dataSet,
+"columns": [
+{ "title": "Seq", "class": "center" },
+{ "title": "", "class": "center" },
+{ "title": "Nome do Posto"},
+{ "title": "Preço"},
+{ "title": "Combustivel"},
+]
+});
 //		oTable=$('#table').dataTable({
 //			"data": dataSet,
 //			"columns": [
@@ -140,7 +149,16 @@ dataSet[seq]=[index, icons,object.stationId, object.price, object.fuelType];
 		    location.reload(true);
 		} );
 
->>>6<<<
+$('#table tbody').on( 'click', '.glyphicon-edit', function () {
+$('#list').hide();
+var rows = $(this).parents('tr').children();
+$('#seq').text(rows[0].innerHTML);
+$('#stationId').val(rows[2].innerHTML);
+$('#price').val(rows[3].innerHTML);
+$('#fuelType').val(rows[4].innerHTML);
+$('#formID').show();
+} );
+
 //		$('#table tbody').on( 'click', '.glyphicon-edit', function () {
 //		    $('#list').hide();
 //		    var rows = $(this).parents('tr').children();
@@ -154,7 +172,18 @@ dataSet[seq]=[index, icons,object.stationId, object.price, object.fuelType];
 		return seq;
 	}
 
->>>7<<<
+function save() {
+  var seq=$('#seq').text();
+  if ( isNaN(seq) ) { seq=0; }
+  var key=formId+"_"+seq;
+  var object={
+"stationId":$("#stationId").val(),
+"price":$("#price").val(),
+"fuelType":$("#fuelType").val(),
+}
+localStorage.setItem(key, JSON.stringify(object));
+}
+
 //	function save() {
 //		var d=new Date();
 //		var timestamp=d.getFullYear()+"/"+("0"+(d.getMonth()+1)).slice(-2)+"/"+("0"+(d.getDate())).slice(-2)+" "+("0"+(d.getHours())).slice(-2)+":"+("0"+(d.getMinutes())).slice(-2)+":"+("0"+(d.getSeconds())).slice(-2)+"."+("0"+(d.getMilliseconds())).slice(-2);
