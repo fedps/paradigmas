@@ -10,6 +10,15 @@
 #include "window.h"
 
 
+std::string genHtmlMark(std::string str, std::string mark){
+  return "<"+mark+">"+str+"</"+mark+">";
+}
+
+std::string genHtmlGroup(std::string id,std::string label){
+  return"<div class=\"form-group\">\n<label for=\""+id+"\" class=\"col-sm-2 control-label\">"+label+          
+        "</label>\n<div class=\"col-sm-6\">\n<input type=\"text\" class=\"form-control validate[required]\" id=\""+
+        id+"\" placeholder=\""+label+"\">\n</div>\n</div>\n";
+}
 
 class Data {
 private:
@@ -118,14 +127,14 @@ public:
     std::string inputLabel(gui->inputLabel->value());
     gui->data.push_back(Data(inputId, inputLabel));
     gui->browser->add((inputId+" : "+inputLabel).c_str());
+    gui->inputId->value("");
+    gui->inputLabel->value("");
   }
 
   // Funcao callback chamada quando selecionada uma linha no Fl_Browser
   static void cbBrowser(Fl_Widget* btn, void* userdata) {
     View* gui = static_cast<View*>(userdata);
     int index = gui->browser->value(); // 1-based index
-    //gui->inputType->value(gui->data[index-1].getType().c_str());
-    //gui->inputType->value(gui->inputType->find_index(gui->data[index-1].getType().c_str()));
     gui->inputId->value(gui->data[index-1].getId().c_str());
     gui->inputLabel->value(gui->data[index-1].getLabel().c_str());
   }
@@ -158,9 +167,53 @@ public:
     }
   }
   static void cbBtnGenerate(Fl_Widget* btn, void* userdata) {
+    View* gui = static_cast<View*>(userdata);
+    std::ifstream file("template.html");
+    std::ofstream fileOut ("index.html");
+    std::string line;
+    std::string str;
+    if(fileOut.is_open()){
+      while (std::getline(file, line)) {
+        std::stringstream linestream(line); 
+        std::getline(linestream, str); 
+        std::string inputTitle(gui->inputTitle->value());
+        if(line == ">>>1<<<"){
+          fileOut<<genHtmlMark(inputTitle,"title");
+        } else if(line == ">>>2<<<"){
+          fileOut<<genHtmlMark(inputTitle,"h1");
+        } else if(line == ">>>3<<<"){
+          int size = gui->browser->size();
+          int index=1;
+          while (index <= size) {
+            fileOut<<genHtmlGroup(gui->data[index-1].getId().c_str(),gui->data[index-1].getLabel().c_str());
+            index++;
+          }
+        } else if(line == ">>>4<<<"){
+          int size = gui->browser->size();
+          int index=1;
+          fileOut<<"dataSet[seq]=[index, icons,";
+          while (index <= size) {
+            std::string inputId(gui->data[index-1].getId().c_str());
+            fileOut<<"object."+inputId;
+            index++;
+            if(index<=size)
+              fileOut<<", ";
+          }
+          fileOut<<"];\n";
+        }
+        else{
+            fileOut<<str;           
+        }
+        fileOut<<"\n";
+      }
+
+      fileOut.close();
+    }
+    else std::cout<<"Não é possível abrir o arquivo";
     fl_alert("Código Gerado");
   }
 };
+
 
 int main() {
   View gui;
